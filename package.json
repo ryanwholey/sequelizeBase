@@ -1,0 +1,36 @@
+{
+  "name": "nobek",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "node_modules/.bin/sequelize db:migrate",
+    "createModels": "npm run autoModel && npm run createModelLinks",
+    "autoModel": "gulp autoModel",
+    "createMigration": "node db/scripts/createNewMigration",
+    "initDB": "node db/scripts/initDB",
+    "init": "npm run initDB && npm run migrate && npm run createModels",
+    "createModelLinks": "node db/scripts/createModelLinks",
+    "jasmineTestDB": "gulp testDB",
+    "_testDB": "NODE_ENV=test node db/scripts/runDBTest",
+    "testDB": "npm run --silent _testDB"
+  },
+  "author": "Ryan Wholey",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "express": "^4.14.0",
+    "mysql": "^2.12.0",
+    "sequelize": "^3.29.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jasmine": "^2.4.2",
+    "gulp-shell": "^0.5.2",
+    "jasmine": "^2.5.3",
+    "phantom": "^4.0.0",
+    "sequelize-cli": "^2.5.1",
+    "umzug": "^1.11.0"
+  }
+}
